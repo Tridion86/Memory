@@ -65,9 +65,9 @@
             break;
     }
     
-    int dh = ([[self view]bounds].size.width - (h*100))/(h+1);//Ancho de pantalla, menos el ancho que ocupan todas las fichas dividido entre numero de fichas +1
+    int dh = ([[self view]bounds].size.width - (h*100))/(h+1);//Distancia Horizontal:Ancho de pantalla, menos el ancho que ocupan todas las fichas dividido entre numero de fichas +1
     
-    int dv = (([[self view]bounds].size.height - 300) - (v*100))/(v+1);
+    int dv = (([[self view]bounds].size.height - 300) - (v*100))/(v+1);//Distancia vertical
     int div = 150;//distancia inicial vertical
     
     NSMutableArray *randomCards = [self createDisorderedArray:numCards];
@@ -94,7 +94,7 @@
             testLayer.cornerRadius = 10.0;
             testLayer.borderWidth = 2.0;
             testLayer.borderColor =[[UIColor redColor] CGColor];
-            //el .name sera de tipo 00, 01, 10, 11, 20, 21... donde el primer dígito sera el idParter y el segundo para diferenciar 2 cartas iguales
+            //el .name sera de tipo 00, 01, 10, 11, 20, 21... donde el primer dígito sera el idPartner y el segundo para diferenciar 2 cartas iguales
             testLayer.name = [NSString stringWithFormat:@"%d%d",idCards, secondCard];
             
             num++;
@@ -191,13 +191,7 @@
                             _firstCard = nil;
                             _readyToPlay = true;
                         });
-                    
-                        //SOUND WRONG
-               /*       NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"caf"];
-                        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-                        self.wrong = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-                        [self.wrong play]; */
-                        //EXIT SOUND
+
                         NSLog(@"Wrong!");
                     }
                 
